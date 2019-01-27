@@ -1,0 +1,49 @@
+.menu-btn {
+  z-index: 10;
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.menu-btn span,
+.menu-btn span::before,
+.menu-btn span::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -1px;
+  margin-left: -10px;
+  width: 20px;
+  height: 2px;
+  background-color: white;
+}
+
+.menu-btn span::before,
+.menu-btn span::after {
+  content: '';
+  display: block;
+  transition: .2s;
+}
+
+.menu-btn span::before { /*Поднимаем псевдоэлемент на 5px */
+  transform: translateY(-5px);;
+}
+
+.menu-btn span::after {
+  transform: translateY(5px);
+}
+
+/* крестик*/
+.menu-btn-active span {
+
+  height: 0;
+}
+
+.menu-btn-active span::before {
+  transform: rotate(45deg);
+}
+
+.menu-btn-active span::after {
+  transform: rotate(-45deg);
+}

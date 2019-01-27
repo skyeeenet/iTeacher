@@ -1,0 +1,645 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #F7F7F7;
+}
+
+ul {
+  list-style: none;
+}
+
+.parallax-window {
+  min-height: 100vh;
+  background: transparent;
+}
+
+p {
+  font-family: "Roboto Light";
+  font-size: 18px;
+  color: #4c4c4c;
+}
+
+.active {
+  color: #CECECE !important;
+}
+
+.loaderArea {
+  background: linear-gradient(90deg, #FF4E50 10%, #F9D423 90%);
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100000;
+}
+
+.loader {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+  top: 50%;
+  margin-top: -20px;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  height: 40px;
+  width: 40px;
+  border: 8px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+}
+
+.loader:before {
+  animation: animate 2s infinite linear;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0) skew(0);
+  }
+  100% {
+    transform: rotate(180deg) skew(360deg);
+  }
+}
+.loader:after {
+  animation: animate2 2s infinite linear;
+}
+
+@keyframes animate2 {
+  0% {
+    transform: rotate(0) skew(0);
+  }
+  100% {
+    transform: rotate(-180deg) skew(-360deg);
+  }
+}
+.menu-btn {
+  z-index: 10;
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.menu-btn span,
+.menu-btn span::before,
+.menu-btn span::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -1px;
+  margin-left: -10px;
+  width: 20px;
+  height: 2px;
+  background-color: white;
+}
+
+.menu-btn span::before,
+.menu-btn span::after {
+  content: '';
+  display: block;
+  transition: .2s;
+}
+
+.menu-btn span::before {
+  /*Поднимаем псевдоэлемент на 5px */
+  transform: translateY(-5px);
+}
+
+.menu-btn span::after {
+  transform: translateY(5px);
+}
+
+/* крестик*/
+.menu-btn-active span {
+  height: 0;
+}
+
+.menu-btn-active span::before {
+  transform: rotate(45deg);
+}
+
+.menu-btn-active span::after {
+  transform: rotate(-45deg);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  align-items: center;
+}
+.navbar ul {
+  display: flex;
+  justify-content: center;
+}
+.navbar ul li {
+  margin-right: 3rem;
+}
+.navbar ul li a {
+  font-family: "Roboto Medium";
+  font-size: 18px;
+  color: white;
+}
+
+.response {
+  margin-top: 100px;
+  padding: 20px;
+  min-height: 120px !important;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex !important;
+  flex-direction: column;
+  position: absolute;
+}
+.response li {
+  margin-top: 5px;
+}
+
+#btn-show {
+  display: none;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.logo {
+  font-family: "Roboto Medium";
+  font-size: 36px;
+  color: white;
+  margin-left: 3rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100vh;
+}
+
+.greeting-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 94vh;
+  flex-direction: column;
+}
+
+.greeting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-family: "Roboto Light";
+  font-weight: 600;
+}
+.greeting h1 {
+  font-size: 48px;
+}
+.greeting h2 {
+  margin-top: 1rem;
+  font-size: 30px;
+}
+
+.down-icon {
+  align-self: center;
+  margin-bottom: 1rem;
+  transition: .3s;
+}
+.down-icon:hover {
+  transition: .3s;
+  transform: translateY(5px);
+}
+
+@media screen and (max-width: 970px) {
+  .navbar {
+    margin-top: 10px;
+    flex-direction: column;
+    height: 100px;
+    align-items: center;
+  }
+  .navbar ul li:last-child {
+    margin-right: 0;
+  }
+  .navbar ul li {
+    margin-right: 1rem;
+  }
+}
+@media screen and (max-width: 595px) {
+  .logo {
+    margin-left: 1rem;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .active {
+    background-color: #1F1F1F;
+    color: white !important;
+  }
+
+  #dropdown-menu {
+    position: absolute;
+    top: 80px;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  #dropdown-menu li {
+    width: 100%;
+  }
+  #dropdown-menu li a {
+    display: block;
+    padding: 10px;
+  }
+
+  #btn-show {
+    display: inline-block !important;
+  }
+
+  .navbar ul {
+    display: none;
+  }
+}
+footer {
+  margin-top: 40px;
+  padding: 60px 0;
+  background-color: #131627;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+footer h1 {
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  font-family: "Roboto Medium";
+}
+footer p {
+  color: white;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.news ul li, .nav-footer ul li {
+  margin-top: 1rem;
+}
+.news ul li a, .nav-footer ul li a {
+  color: white;
+  font-size: 14px;
+  font-family: "Roboto Light";
+}
+
+@media screen and (max-width: 970px) {
+  footer {
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  .nav-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  .contact-us {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+}
+.main {
+  width: 100%;
+}
+
+.sec_1 {
+  width: 100%;
+}
+
+.title-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+.title-container img {
+  margin-bottom: 20px;
+  transition: .3s;
+}
+.title-container img:hover {
+  transition: .3s;
+  transform: translateY(5px);
+}
+
+.title {
+  color: #232d37;
+  font-size: 36px;
+  font-family: "Roboto Light";
+  padding: 1.5rem 0;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  height: 25%;
+  box-shadow: 0 40px 70px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  height: 80%;
+}
+.card:not(:last-child) {
+  border-right: 1px solid #bbbaba;
+  margin-right: 10px;
+}
+
+.card-image img {
+  height: 50px;
+  width: 50px;
+}
+
+.card-title h2 {
+  font-family: "Roboto Light";
+  font-size: 24px;
+}
+
+.card-main-text {
+  margin-top: 1rem;
+}
+
+.specialists-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 100px;
+  height: 75%;
+}
+
+.specialist {
+  display: flex;
+  justify-content: space-around;
+}
+.specialist:not(:first-child) {
+  margin-top: 50px;
+}
+
+.text {
+  width: 50%;
+}
+
+.specialist-title h1 {
+  font-size: 36px;
+  color: #232d37;
+  font-family: "Roboto Medium";
+}
+
+.specialist-main-text {
+  margin-top: 1rem;
+  line-height: 1.6rem;
+}
+
+.teacher-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.teacher-container .down-icon {
+  margin-top: 20px;
+}
+
+.teacher-photo {
+  margin-top: 10px;
+}
+
+.teacher-text-container {
+  width: 75%;
+  margin-top: 3rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.teacher-title, .way-item-title, .team-text-container h1 {
+  margin-top: 10px;
+  font-size: 24px;
+  font-family: "Roboto Light";
+  color: white;
+}
+
+.teacher-main-text {
+  margin-top: 20px;
+  padding: 1rem;
+}
+.teacher-main-text p {
+  color: white;
+  line-height: 1.5rem;
+  font-size: 18px;
+}
+
+.btn a {
+  display: flex;
+  width: 140px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #31e1e3;
+  font-family: "Roboto Medium";
+  color: black;
+}
+
+.ways-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ways-text-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-family: "Roboto Medium";
+  margin-top: 80px;
+}
+.ways-text-container h1 {
+  font-size: 36px;
+}
+.ways-text-container h3 {
+  font-size: 18px;
+}
+
+.items-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 100px;
+}
+
+.way-item-title, .team-text-container h1 {
+  font-size: 36px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.item img {
+  width: 50px;
+  height: 50px;
+}
+.item p {
+  color: white;
+  font-family: "Roboto Medium";
+  text-shadow: black 1px 1px 1px;
+}
+
+.way-item-main-text {
+  width: 80%;
+}
+
+.team-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.team-text-container h1 {
+  color: #232d37;
+  margin: 20px 0;
+}
+.team-text-container p {
+  width: 50%;
+}
+
+.slider-container {
+  margin-top: 30px;
+}
+
+.slider-parallax {
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.slider-inner-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.slider {
+  width: 30%;
+  height: 250px;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  font-family: "Roboto Medium", sans-serif;
+}
+.slider h1 {
+  font-size: 24px;
+}
+.slider p {
+  color: black;
+}
+
+@media screen and (max-width: 970px) {
+  .cards-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .card {
+    border-right: none !important;
+    margin-right: 0 !important;
+    width: 80%;
+  }
+  .card:last-child {
+    margin-bottom: 20px;
+  }
+
+  .card-main-text {
+    text-align: center;
+  }
+
+  .specialist {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .text {
+    width: 80%;
+  }
+
+  .specialists-container {
+    margin-top: 80px;
+  }
+
+  .specialist-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .specialist-image img {
+    max-width: 80%;
+  }
+
+  .teacher-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .teacher-photo img {
+    max-width: 80%;
+  }
+
+  .items-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .item {
+    margin-top: 80px;
+  }
+
+  .way-item-main-text {
+    text-align: center;
+  }
+
+  .team-text-container p {
+    width: 80%;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
